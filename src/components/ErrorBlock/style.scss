@@ -1,0 +1,65 @@
+@import '../UploadForm/style';
+
+.error-block {
+   visibility: hidden;
+   opacity: 0;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   transition: linear all .3s;
+   z-index: 1;
+
+   &:before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.5;
+      background: white;
+   }
+
+   &--show {
+      visibility: visible;
+      opacity: 1;
+      z-index: 3;
+   }
+
+   &__window {
+      width: 500px;
+      padding: 30px 20px;
+      text-align: center;
+      position: absolute;
+      box-sizing: border-box;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      box-shadow: 0 0 10px 0px grey;
+   }
+
+   &__text {
+      font-weight: 400;
+      margin-bottom: 40px;
+   }
+
+   &__btn {
+      cursor: pointer;
+      user-select: none;
+      min-width: 80px;
+      @include form-group;
+      @include form-group--active;
+   }
+}
+
+@media screen and (max-width: 860px) {
+   .error-block {
+      &__window {
+         top: 50%;
+         width: 320px;
+      }
+   }
+}

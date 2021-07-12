@@ -1,0 +1,72 @@
+$color: #343a40;
+$inp-bg: #fff;
+@mixin form-group {
+   color: $color;
+   border: none;
+   box-shadow: 0 0 15px 0 grey;
+   background-color: $inp-bg;
+   padding: .375rem .75rem;
+   border-radius: .25rem;
+   line-height: 1.5;
+   font-weight: 400;
+}
+
+@mixin form-group--active {
+   &:hover {
+      color: #fff;
+      background-color: $color;
+      border-color: $color;
+   }
+   &:active {
+      box-shadow: 0 0 10px 0 $color;
+   }
+}
+
+.upload-form {
+   display: flex;
+   padding: 0 0 10px;
+   margin-bottom: 10px;
+   position: sticky;
+   top: 20px;
+   z-index: 3;
+
+   &__element {
+      flex: 1 1 auto;
+      font-size: 1rem;
+      @include form-group;
+   }
+
+   input {
+      display: block;
+      width: 100%;
+      background-clip: padding-box;
+      transition: linear all .1s;
+
+      &:focus {
+         background-color: $inp-bg;
+         outline: 0;
+         box-shadow: 0 0 10px 0 $color;
+      }
+   }
+
+   button {
+      flex-grow: 0;
+      margin-left: 20px;
+      display: inline-block;
+      text-align: center;
+      vertical-align: middle;
+      user-select: none;
+      cursor: pointer;
+      transition: linear all .1s;
+
+      @include form-group--active;
+   }
+}
+
+@media screen and (max-width: 860px) {
+   .upload-form {
+      padding: 10px 10px;
+      margin-bottom: 0;
+      top: 0;
+   }
+}
