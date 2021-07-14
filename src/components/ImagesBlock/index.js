@@ -34,9 +34,9 @@ const ImagesBlock = () => {
             marginElement: 7,
             maxRowHeight: 240,
             mediaMaxRowHeight: {
-                '320': 480,
-                '420': 568,
-                '480': 680
+                '320': 640,
+                '420': 680,
+                '480': 720
             }
         })
 
